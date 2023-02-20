@@ -25,7 +25,7 @@ spring:
           num-test-per-eviction-run: 3
           enabled: true
   profiles:
-    active: ${ACTIVE_PROFILE:local}
+    active: ${ACTIVE_PROFILE:dev}
   kafka:
     producer:
       bootstrap-servers: ${KAFKA_SERVERS:localhost:9092}

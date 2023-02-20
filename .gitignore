@@ -44,3 +44,4 @@ build/
 /iam-api/mvnw.cmd
 /iam-core/mvnw.cmd
 /mvnw.cmd
+/iam-api/src/main/resources/application-local.yaml
