@@ -32,3 +32,15 @@ build/
 
 ### VS Code ###
 .vscode/
+/.mvn/wrapper/maven-wrapper.jar
+/iam-api/.mvn/wrapper/maven-wrapper.jar
+/iam-core/.mvn/wrapper/maven-wrapper.jar
+/.mvn/wrapper/maven-wrapper.properties
+/iam-api/.mvn/wrapper/maven-wrapper.properties
+/iam-core/.mvn/wrapper/maven-wrapper.properties
+/iam-api/mvnw
+/iam-core/mvnw
+/mvnw
+/iam-api/mvnw.cmd
+/iam-core/mvnw.cmd
+/mvnw.cmd
