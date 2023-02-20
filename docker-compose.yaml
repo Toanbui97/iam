@@ -1,0 +1,15 @@
+version: '1.0'
+services:
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongo
+      MONGO_INITDB_ROOT_PASSWORD: mongo
+      MONGO_INITDB_DATABASE: iam
+    volumes:
+      - mongo-data:/var/lib/mongodb/data
+volumes:
+  mongo-data:

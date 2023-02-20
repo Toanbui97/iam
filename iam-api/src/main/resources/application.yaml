@@ -1,0 +1,69 @@
+server:
+  port: ${SERVER_PORT:7070}
+  servlet:
+    context-path: /iam
+spring:
+  application:
+    name: loyalty-cms
+  cache:
+    type: redis
+  data:
+    mongodb:
+      authentication-database: admin
+      database: ${DB_NAME:iam}
+      host: ${DB_HOST:localhost}
+      port: ${DB_PORT:27017}
+      username: ${DB_USER:mongo}
+      password: ${DB_PASSWORD:mongo}
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      lettuce:
+        pool:
+          time-between-eviction-runs: 30
+          min-idle: 60
+          num-test-per-eviction-run: 3
+          enabled: true
+  profiles:
+    active: ${ACTIVE_PROFILE:local}
+  kafka:
+    producer:
+      bootstrap-servers: ${KAFKA_SERVERS:localhost:9092}
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    bootstrap-servers: ${KAFKA_SERVERS:localhost:9092}
+    retries: 5
+    deliveryTimeout: 20000
+    requestTimeout: 20000
+    poll:
+      maxPollRecords: 500
+      maxPollInterval: 300000
+
+
+management:
+  endpoint:
+    health:
+      probes:
+        enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: prometheus,health,info
+
+webclient:
+  http:
+    maxConnections: 200
+    acquireTimeout: 5000
+    connectionTimeout: 20000
+    readTimeout: 20000
+    writeTimeout: 20000
+    keepAlive: true
+    selectorThread: 1
+    workerThread: 4
+  retry:
+    attempt: 5
+    firstBackoff: 2
+    maxBackoff: 5
+  cms-service:
+    base-url: ${CMS_SERVICE_BASE_URL}
+    update_disbursements_amount: /api/v1/update_rank
